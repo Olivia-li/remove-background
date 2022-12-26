@@ -29,7 +29,7 @@ def predict():
 
         output.save(filepath)
 
-        return f'http://localhost:5002/{filepath}'
+        return f'/{filepath}'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002)
