@@ -10,7 +10,7 @@ from flask import Flask, request
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/remove_bg', methods=['POST'])
 
 def predict():
     if request.method == 'POST':
@@ -32,4 +32,4 @@ def predict():
         return f'http://localhost:5002/{filepath}'
 
 if __name__ == '__main__':
-    app.run(port=5002)
+    app.run(host='0.0.0.0', port=5000)
