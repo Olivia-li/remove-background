@@ -31,5 +31,16 @@ def predict():
 
         return f'/{filepath}'
 
+
+@app.route('/delete', methods=['POST'])
+def remove_images():
+    if request.method == 'POST': 
+        password = request.json['password']
+        if password == 'oranges4life':
+            for root, dirs, files in os.walk('static'):
+                for file in files:
+                    os.remove(os.path.join(root, file))
+            return 'Images removed!'
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002)
